@@ -84,4 +84,66 @@ def delete_nth(order, max_e):
     return result
 
 
-print(delete_nth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3), "\n")
+# Task 5
+"""
+Convert a string to a new string where each character in the new string
+is "(" if that character appears only once in the original string, or 
+")" if that character appears more than once in the original string. 
+Ignore capitalization when determining if a character is a duplicate.
+"""
+
+
+def duplicate_encode(word):
+    word = word.lower()
+    result = ""
+    for i in word:
+        if word.count(i) > 1:
+            result += ")"
+        else:
+            result += "("
+    return result
+
+
+# Task 6
+"""
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this task (but not y)
+"""
+
+
+def get_count(sentence):
+    count = 0
+    for i in "aeiou":
+        if i in sentence:
+            count += sentence.count(i)
+    return count
+
+
+# Task 7
+"""
+You are going to be given an array of integers. Your job is to take 
+that array and find an index N where the sum of the integers to the 
+left of N is equal to the sum of the integers to the right of N.
+If there is no index that would make this happen, return -1.
+"""
+
+
+def find_even_index(arr):
+    for i in range(len(arr)):
+        if sum(arr[:i]) == sum(arr[i + 1:]):
+            return i
+    return -1
+
+
+# Task 8
+"""
+Build a function that returns an array of integers 
+from n to 1 where n>0.
+"""
+
+
+def reverse_seq(n):
+    return [i for i in range(1, n + 1)][::-1]
+
+
+print(reverse_seq(5), "\n")

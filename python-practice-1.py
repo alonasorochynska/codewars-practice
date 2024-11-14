@@ -314,4 +314,36 @@ def longest(a1, a2):
     return "".join(sorted(set(a1 + a2)))
 
 
-print(longest("aretheyhere", "yestheyarehere"), "\n")
+# Task 21
+"""
+Implement a function which convert the given boolean value into its string
+representation.
+"""
+
+
+def boolean_to_string(b):
+    # return str(b)
+    # return f"{b}"
+    # return "True" if b else "False"
+    return ("False", "True")[b]
+
+
+# Task 22
+"""
+Your task is to sort a given string. Each word in the string will contain a
+single number. This number is the position the word should have in the result.
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+If the input string is empty, return an empty string.
+"""
+
+
+def order(sentence):
+    result = []
+    for i in range(1, 10):
+        for j in sentence.split():
+            if str(i) in j:
+                result.append(j)
+    return " ".join(result)
+
+
+print(order("is2 Thi1s T4est 3a"), "\n")

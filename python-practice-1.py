@@ -346,4 +346,10 @@ def order(sentence):
     return " ".join(result)
 
 
-print(order("is2 Thi1s T4est 3a"), "\n")
+# Task 23
+
+def solution(text, ending):
+    return text.endswith(ending)
+
+
+print(solution("abc", "bc"), "\n")

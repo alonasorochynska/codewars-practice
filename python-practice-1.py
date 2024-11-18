@@ -352,4 +352,88 @@ def solution(text, ending):
     return text.endswith(ending)
 
 
-print(solution("abc", "bc"), "\n")
+# Task 24
+"""
+Complete the method that takes a boolean value and return a "Yes" string for
+true, or a "No" string for false.
+"""
+
+
+def bool_to_word(boolean):
+    return "Yes" if boolean else "No"
+
+
+# Task 25
+"""
+In a small town the population is p0 = 1000 at the beginning of a year. The
+population regularly increases by 2 percent per year and moreover 50 new
+inhabitants per year come to live in the town. How many years does the town
+need to see its population greater than or equal to p = 1200 inhabitants?
+"""
+
+
+def nb_year(p0, percent, aug, p):
+    count = 0
+    while p0 < p:
+        print(p0)
+        p0 += int(p0 * percent / 100) + aug
+        count += 1
+    return count
+
+
+# Task 26
+"""
+You are going to be given a non-empty string. Your job is to return the middle
+character(s) of the string.
+If the string's length is odd, return the middle character.
+If the string's length is even, return the middle 2 characters.
+"""
+
+
+def get_middle(s):
+    if len(s) % 2 == 0:
+        return s[len(s) // 2 - 1:len(s) // 2 + 1]
+    return s[len(s) // 2]
+
+
+# Task 27
+"""
+Build a pyramid-shaped tower, as an array/list of strings, given a positive
+integer number of floors. A tower block is represented with "*" character.
+"""
+
+
+def tower_builder(n_floors):
+    tower = []
+    space = [i for i in range(n_floors)[::-1]]
+    for j in range(n_floors):
+        stars = "*" * (j + 1) + "*" * j
+        tower.append(" " * space[j] + stars + " " * space[j])
+    return tower
+
+
+# Tsk 28
+"""
+An isogram is a word that has no repeating letters, consecutive or
+non-consecutive. Implement a function that determines whether a string that
+contains only letters is an isogram. Assume the empty string is an isogram.
+Ignore letter case.
+"""
+
+
+def is_isogram(string):
+    return len(string.lower()) == len(set(string.lower()))
+
+
+# Task 29
+"""
+Write a function which takes a list of strings and returns each line prepended
+by the correct number.
+"""
+
+
+def number(lines):
+    return [f"{i + 1}: {val}" for i, val in enumerate(lines)]
+
+
+print(number(["a", "b", "c"]), "\n")

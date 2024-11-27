@@ -436,4 +436,16 @@ def number(lines):
     return [f"{i + 1}: {val}" for i, val in enumerate(lines)]
 
 
-print(number(["a", "b", "c"]), "\n")
+# Task 30
+"""
+Complete the solution so that the function will break up camel casing,
+using a space between words.
+"""
+
+
+def solution1(s):
+    result = [i if i.islower() else i + " " for i in s[::-1]]
+    return "".join(result)[::-1]
+
+
+print(solution1("camelCasing"), "\n")

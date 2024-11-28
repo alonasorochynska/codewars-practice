@@ -448,4 +448,41 @@ def solution1(s):
     return "".join(result)[::-1]
 
 
-print(solution1("camelCasing"), "\n")
+# Task 31
+"""
+Given a random non-negative number, you have to return the digits
+of this number within an array in reverse order.
+"""
+
+
+def digitize(n):
+    n = [int(i) for i in list(str(n))]
+    return n[::-1]
+
+
+# Task 32
+
+
+def accum(st):
+    result = []
+    for i, val in enumerate(st):
+        result.append(val.capitalize() + val.lower() * i)
+    return "-".join(result)
+
+
+# Task 33
+"""
+Given an array (arr) as an argument complete the function countSmileys
+that should return the total number of smiling faces.
+"""
+
+
+def count_smileys(arr):
+    count = 0
+    for i in arr:
+        if i[-1] == "D" or i[-1] == ")":
+            count += 1
+    return count
+
+
+print(count_smileys([':)', ';(', ';}', ':-D']), "\n")

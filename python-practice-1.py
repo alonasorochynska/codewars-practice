@@ -480,9 +480,22 @@ that should return the total number of smiling faces.
 def count_smileys(arr):
     count = 0
     for i in arr:
-        if i[-1] == "D" or i[-1] == ")":
+        if i[-1] in "D)" and i[-2] in "-~:;":
             count += 1
     return count
 
 
-print(count_smileys([':)', ';(', ';}', ':-D']), "\n")
+# Task 34
+"""
+Given a month as an integer from 1 to 12, return to which quarter of the
+year it belongs as an integer number.
+"""
+
+
+def quarter_of(month):
+    for i, val in enumerate([3, 6, 9, 12]):
+        if month <= val:
+            return i + 1
+
+
+print(quarter_of(11), "\n")

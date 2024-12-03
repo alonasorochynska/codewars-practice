@@ -498,4 +498,38 @@ def quarter_of(month):
             return i + 1
 
 
-print(quarter_of(11), "\n")
+# Task 35
+"""
+Create a function with two arguments that will return an array of the
+first n multiples of x.
+"""
+
+
+def count_by(x, n):
+    return [x * i for i in range(1, n + 1)]
+
+
+# Task 36
+"""
+It's pretty straightforward. Your goal is to create a function that
+removes the first and last characters of a string. You're given one
+parameter, the original string.
+"""
+
+
+def remove_char(s):
+    return s[1:-1]
+
+
+# Task 37
+"""
+Your task is to create a function that does four basic mathematical
+operations.
+"""
+
+
+def basic_op(operator, value1, value2):
+    return eval(f"{value1} {operator} {value2}")
+
+
+print(basic_op('+', 4, 7), "\n")

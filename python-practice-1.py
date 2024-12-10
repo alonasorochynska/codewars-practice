@@ -532,4 +532,64 @@ def basic_op(operator, value1, value2):
     return eval(f"{value1} {operator} {value2}")
 
 
-print(basic_op('+', 4, 7), "\n")
+# Task 38
+"""
+Create a function that gives a personalized greeting.
+This function takes two parameters: name and owner.
+"""
+
+
+def greet(name, owner):
+    return "Hello " + ("boss" if name == owner else "guest")
+
+
+# Task 39
+"""
+Timmy & Sarah think they are in love, but around where they live, they
+will only know once they pick a flower each. If one of the flowers has
+an even number of petals and the other has an odd number of petals it
+means they are in love.
+Write a function that will take the number of petals of each flower
+and return true if they are in love and false if they aren't.
+"""
+
+
+def lovefunc(flower1, flower2):
+    return True if (flower1 + flower2) % 2 else False
+
+
+# Task 40
+"""
+You're writing code to control your town's traffic lights. You need a
+function to handle each change from green, to yellow, to red, and then
+to green again.
+Complete the function that takes a string as an argument representing
+the current state of the light and returns a string representing the
+state the light should change to.
+"""
+
+
+def update_light(current):
+    z = {
+        "green": "yellow",
+        "yellow": "red",
+        "red": "green"
+    }
+    return z[current]
+
+
+# Task 41
+"""
+You are given an odd-length array of integers, in which all of them are the
+same, except for one single number. Complete the method which accepts such
+an array, and returns that single different number. The input array will
+always be valid! (odd-length >= 3)
+"""
+
+
+def stray(arr):
+    z = list(set(arr))
+    return z[0] if arr.count(z[0]) <= 1 else z[1]
+
+
+print(stray([2, 3, 2, 2, 2]), "\n")

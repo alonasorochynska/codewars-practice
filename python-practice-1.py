@@ -592,4 +592,7 @@ def stray(arr):
     return z[0] if arr.count(z[0]) <= 1 else z[1]
 
 
+# Task 42
+
+
 print(stray([2, 3, 2, 2, 2]), "\n")

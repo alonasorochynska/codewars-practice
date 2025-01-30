@@ -593,6 +593,83 @@ def stray(arr):
 
 
 # Task 42
+"""
+Make a function that can take any non-negative integer as an argument and
+return it with its digits in descending order. Essentially, rearrange the
+digits to create the highest possible number.
+"""
 
 
-print(stray([2, 3, 2, 2, 2]), "\n")
+def descending_order(num):
+    num = [int(i) for i in str(num)]
+    num = sorted(num, reverse=True)
+    num = [str(i) for i in num]
+    return int("".join(num))
+
+
+# Task 43
+"""
+The cockroach is one of the fastest insects. Write a function which takes
+its speed in km per hour and returns it in cm per second, rounded down
+to the integer (= floored).
+"""
+
+
+def cockroach_speed(s):
+    return int((100000 / 3600) * s)
+
+
+# Task 44
+"""
+You will be given a number and you will need to return it as a string
+in Expanded Form
+"""
+
+
+def expanded_form(num):
+    s_num = str(num)
+    result = []
+
+    for i in range(len(s_num)):
+        if s_num[i:].startswith("0"):
+            continue
+        else:
+            result.append(int(s_num[i]) * (10 ** (int(len(s_num[i:])) - 1)))
+
+    return "".join([str(i) + " + " for i in result])[:-3]
+
+
+# Task 45
+"""
+Create a function that takes 2 integers in form of a string as an input,
+and outputs the sum (also as a string)
+"""
+
+
+def sum_str(a, b):
+    return str(int(a if a else 0) + int(b if b else 0))
+
+
+# Task 46
+"""
+You will be given an array of numbers. You have to sort the odd numbers in
+ascending order while leaving the even numbers at their original positions.
+"""
+
+
+def sort_array(source_array):
+    no_odd = [i if not i % 2 else "x" for i in source_array]
+    even_rev = sorted(i for i in source_array if i % 2)
+    result = []
+    k = 0
+    for i in range(len(source_array)):
+        if no_odd[i] != "x":
+            result.append(no_odd[i])
+        else:
+            result.append(even_rev[k])
+            k += 1
+
+    return result
+
+
+print(sort_array([5, 3, 2, 8, 1, 4, 11]), "\n")

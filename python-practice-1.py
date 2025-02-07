@@ -672,4 +672,61 @@ def sort_array(source_array):
     return result
 
 
-print(sort_array([5, 3, 2, 8, 1, 4, 11]), "\n")
+# Task 47
+"""
+When provided with a number between 0-9, return it in words. Note that the
+input is guaranteed to be within the range of 0-9.
+"""
+
+
+def switch_it_up(n):
+    d = {
+        0: "Zero",
+        1: "One",
+        2: "Two",
+        3: "Three",
+        4: "Four",
+        5: "Five",
+        6: "Six",
+        7: "Seven",
+        8: "Eight",
+        9: "Nine",
+    }
+    return d[n]
+
+
+# Task 48
+"""
+Create a function that turns a string into a Mexican Wave
+"""
+
+
+def wave(p):
+    return [
+        p[:i] + p[i:].capitalize() for i in range(len(p)) if p[i].isalpha()
+    ]
+
+
+# Task 49
+"""
+Complete the function/method so that it returns the url with anything after
+the anchor (#) removed.
+"""
+
+
+def remove_url_anchor(url):
+    return url[:url.index("#")] if "#" in url else url
+
+
+# Task 50
+"""
+count all the occurring characters in a string. If you have a string like
+aba, then the result should be {'a': 2, 'b': 1}.
+"""
+
+
+def count(s):
+    return {i: s.count(i) for i in s}
+
+
+print(count("aba"), "\n")

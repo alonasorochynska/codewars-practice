@@ -729,4 +729,135 @@ def count(s):
     return {i: s.count(i) for i in s}
 
 
-print(count("aba"), "\n")
+# Task 51
+"""
+You need to return a string that looks like a diamond shape when printed on the
+screen, using asterisk (*) characters. Trailing spaces should be removed, and
+every line must be terminated with a newline character (\n).
+"""
+
+
+def diamond(n):
+    if n < 1 or n % 2 == 0:
+        return None
+    spaces = [0]
+    stars = []
+    k = 0
+    for i in range(1, n + 1):
+        if i % 2 != 0:
+            stars.append(i)
+        else:
+            k += 1
+            spaces.append(k)
+    result = []
+    spaces = spaces[::-1]
+    for j in range(len(stars)):
+        result.append(spaces[j] * " " + stars[j] * "*" + "\n")
+    return "".join(result + result[:-1][::-1])
+
+
+# Task 52
+"""
+Given a string, you have to return a string in which each character
+(case-sensitive) is repeated once.
+"""
+
+
+def double_char(s):
+    return "".join([i * 2 for i in s])
+
+
+# Task 53
+"""
+Write a function to split a string and convert it into an array of words.
+"""
+
+
+def string_to_array(s):
+    return s.split() if s != "" else [s]
+
+
+# Task 54
+"""
+Given an array of integers, find the one that appears an odd number of times.
+"""
+
+
+def find_it(seq):
+    return [i for i in seq if seq.count(i) % 2 != 0][0]
+
+
+# Task 55
+"""
+Implement the function unique_in_order which takes as argument a sequence
+and returns a list of items without any elements with the same value next to
+each other and preserving the original order of elements.
+"""
+
+
+def unique_in_order(sequence):
+    result = []
+    for i, char in enumerate(sequence):
+        if i == 0 or char != sequence[i - 1]:
+            result.append(char)
+    return result
+
+
+# Task 56
+"""
+Americans are odd people: in their buildings, the first floor is actually
+the ground floor and there is no 13th floor (due to superstition).
+Write a function that given a floor in the american system returns the floor
+in the european system.
+"""
+
+
+def get_real_floor(n):
+    if n > 0:
+        return n - 1 if n < 13 else n - 2
+    return n
+
+
+# Task 57
+"""
+Your task is correct the errors in the digitised text. You only have to handle
+the following mistakes:
+S is misinterpreted as 5
+O is misinterpreted as 0
+I is misinterpreted as 1
+"""
+
+
+def correct(s):
+    correct = {"5": "S", "0": "O", "1": "I"}
+    return "".join([i if i not in correct.keys() else correct.get(i) for i in s])
+
+
+# Task 58
+"""
+Write a function which converts the input string to uppercase.
+"""
+
+
+def make_upper_case(s):
+    return s.upper()
+
+
+# Task 59
+"""
+Given an integer as input, can you round it to the next (meaning,
+"greater than or equal") multiple of 5?
+"""
+
+
+def round_to_next5(n):
+    resolve = {
+        1: n + 4,
+        2: n + 3,
+        3: n + 2,
+        4: n + 1,
+    }
+    return resolve.get(n % 5, n)
+
+
+print(round_to_next5(17), "\n")
